@@ -534,45 +534,45 @@
                             <h2 class="text-xl-headline text-center mb-12">Frequently Asked Questions</h2>
                             <div class="space-y-4">
                                 <div class="card">
-                                    <button class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-muted/50 transition-colors duration-200 rounded-2xl" aria-expanded="false">
+                                    <button id="faq-btn-1" class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-muted/50 transition-colors duration-200 rounded-2xl" aria-expanded="false">
                                         <h3 class="text-md-headline pr-4">Is this really free?</h3>
                                         <div class="flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-5 h-5 text-muted-foreground" aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-5 h-5 text-muted-foreground transition-transform duration-200" aria-hidden="true" id="faq-chevron-1">
                                                 <path d="m6 9 6 6 6-6"></path>
                                             </svg>
                                         </div>
                                     </button>
-                                    <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+                                    <div id="faq-content-1" class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
                                         <div class="px-6 pb-6">
                                             <p class="text-body text-muted-foreground leading-relaxed">Yes. This webinar is completely free and designed as a learning-focused session.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <button class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-muted/50 transition-colors duration-200 rounded-2xl" aria-expanded="false">
+                                    <button id="faq-btn-2" class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-muted/50 transition-colors duration-200 rounded-2xl" aria-expanded="false">
                                         <h3 class="text-md-headline pr-4">Will there be a sales pitch?</h3>
                                         <div class="flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-5 h-5 text-muted-foreground" aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-5 h-5 text-muted-foreground transition-transform duration-200" aria-hidden="true" id="faq-chevron-2">
                                                 <path d="m6 9 6 6 6-6"></path>
                                             </svg>
                                         </div>
                                     </button>
-                                    <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+                                    <div id="faq-content-2" class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
                                         <div class="px-6 pb-6">
                                             <p class="text-body text-muted-foreground leading-relaxed">No hard sell. You'll leave with practical insights you can apply immediately.</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="card">
-                                    <button class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-muted/50 transition-colors duration-200 rounded-2xl" aria-expanded="false">
+                                    <button id="faq-btn-3" class="w-full px-6 py-4 text-left flex items-center justify-between hover:bg-muted/50 transition-colors duration-200 rounded-2xl" aria-expanded="false">
                                         <h3 class="text-md-headline pr-4">Will a recording be available?</h3>
                                         <div class="flex-shrink-0">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-5 h-5 text-muted-foreground" aria-hidden="true">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down w-5 h-5 text-muted-foreground transition-transform duration-200" aria-hidden="true" id="faq-chevron-3">
                                                 <path d="m6 9 6 6 6-6"></path>
                                             </svg>
                                         </div>
                                     </button>
-                                    <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+                                    <div id="faq-content-3" class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
                                         <div class="px-6 pb-6">
                                             <p class="text-body text-muted-foreground leading-relaxed">Yes. All registered participants will receive the recording.</p>
                                         </div>
@@ -697,6 +697,37 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+
+    // FAQ Accordion functionality
+    const faqButtons = document.querySelectorAll('[id^="faq-btn-"]');
+    
+    faqButtons.forEach(function(button) {
+        button.addEventListener('click', function() {
+            const buttonId = this.id;
+            const contentId = buttonId.replace('btn', 'content');
+            const chevronId = buttonId.replace('btn', 'chevron');
+            
+            const content = document.getElementById(contentId);
+            const chevron = document.getElementById(chevronId);
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            if (content && chevron) {
+                if (isExpanded) {
+                    // Close
+                    content.classList.add('max-h-0', 'opacity-0');
+                    content.classList.remove('max-h-96', 'opacity-100');
+                    chevron.style.transform = 'rotate(0deg)';
+                    this.setAttribute('aria-expanded', 'false');
+                } else {
+                    // Open
+                    content.classList.remove('max-h-0', 'opacity-0');
+                    content.classList.add('max-h-96', 'opacity-100');
+                    chevron.style.transform = 'rotate(180deg)';
+                    this.setAttribute('aria-expanded', 'true');
+                }
+            }
+        });
+    });
 });
 </script>
 </body>
