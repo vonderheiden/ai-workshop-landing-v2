@@ -30,6 +30,24 @@ If the site is not loading with proper styling, please follow these steps:
 - `.nojekyll` - Prevents Jekyll processing
 - `test.html` - Simple test page to verify CSS loading
 
+## 🎯 Navigation Structure
+
+### Updated Menu System:
+- **Program** - Links to main page program section
+- **Why Us** - Links to main page why us section  
+- **Events** (Dropdown) - **NEW** Dropdown menu with:
+  - **Webinars** - Links to webinar landing page (`event.html`)
+  - **Workshops** - Links to Eventbrite (placeholder: `https://www.eventbrite.com`)
+- **Agenda** - Links to webinar agenda (on webinar page only)
+- **Speaker** - Links to speaker section (on webinar page only)
+- **FAQ** - Links to FAQ section
+
+### Navigation Features:
+- **Desktop**: Hover dropdown with smooth transitions
+- **Mobile**: Expandable menu with nested structure
+- **Cross-page linking**: Proper navigation between main and webinar pages
+- **External links**: Workshop link opens in new tab with security attributes
+
 ## 🎯 New Webinar Landing Page Features
 
 ### Content Sections:
@@ -64,8 +82,8 @@ If the site is not loading with proper styling, please follow these steps:
 - **Primary Color**: Vibrant Yellow (#FFD700)
 - **Typography**: Inter font family
 - **Layout**: Responsive grid system
-- **Components**: Cards, buttons, navigation, forms
-- **Animations**: Floating sticky notes, hover effects
+- **Components**: Cards, buttons, navigation, forms, dropdowns
+- **Animations**: Floating sticky notes, hover effects, dropdown transitions
 - **Accessibility**: Focus states, semantic HTML, proper contrast
 
 ## 🐛 Troubleshooting
@@ -87,3 +105,18 @@ The webinar page (`event.html`) is optimized for social media campaigns:
 - Mobile-responsive design
 - Fast loading times
 - SEO-optimized meta tags
+
+## 🔗 Navigation Links
+
+### Main Page (`index.html`):
+- **Events > Webinars** → `event.html`
+- **Events > Workshops** → `https://www.eventbrite.com` (external)
+
+### Webinar Page (`event.html`):
+- **Program** → `index.html#program`
+- **Why Us** → `index.html#why-us`
+- **Events > Webinars** → `event.html` (current page)
+- **Events > Workshops** → `https://www.eventbrite.com` (external)
+- **Agenda** → `#agenda` (same page)
+- **Speaker** → `#speaker` (same page)
+- **FAQ** → `#faq` (same page)
