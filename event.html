@@ -42,9 +42,9 @@
                             <div class="ml-10 flex items-baseline space-x-8">
                                 <a href="index.html#program" class="text-body text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium">Program</a>
                                 <a href="index.html#why-us" class="text-body text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium">Why Us</a>
-                                <div class="relative group">
-                                    <button class="text-body text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium flex items-center">Events<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1"><path d="m6 9 6 6 6-6"></path></svg></button>
-                                    <div class="absolute top-full left-0 mt-1 w-48 bg-white border border-border rounded-xl shadow-soft opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                                <div class="relative">
+                                    <button id="events-dropdown-btn" class="text-body text-foreground/80 hover:text-foreground transition-colors duration-200 font-medium flex items-center">Events<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 transition-transform duration-200" id="events-chevron"><path d="m6 9 6 6 6-6"></path></svg></button>
+                                    <div id="events-dropdown" class="absolute top-full left-0 mt-1 w-48 bg-white border border-border rounded-xl shadow-soft opacity-0 invisible transition-all duration-200 z-50">
                                         <div class="py-2">
                                             <a href="event.html" class="block px-4 py-2 text-body text-foreground/80 hover:text-foreground hover:bg-muted transition-colors duration-200">Webinars</a>
                                             <a href="https://www.eventbrite.com" target="_blank" rel="noopener noreferrer" class="block px-4 py-2 text-body text-foreground/80 hover:text-foreground hover:bg-muted transition-colors duration-200">Workshops</a>
@@ -60,7 +60,7 @@
                             <button class="btn-primary px-6 py-3">Save My Seat (Free)</button>
                         </div>
                         <div class="md:hidden">
-                            <button class="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-accent hover:bg-muted focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
+                            <button id="mobile-menu-btn" class="inline-flex items-center justify-center p-2 rounded-md text-foreground hover:text-accent hover:bg-muted focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu block h-6 w-6" aria-hidden="true">
                                     <path d="M4 5h16"></path>
                                     <path d="M4 12h16"></path>
@@ -69,14 +69,16 @@
                             </button>
                         </div>
                     </div>
-                    <div class="md:hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
+                    <div id="mobile-menu" class="md:hidden transition-all duration-300 ease-in-out max-h-0 opacity-0 overflow-hidden">
                         <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-border">
                             <a href="index.html#program" class="block px-3 py-2 text-body text-foreground/80 hover:text-foreground hover:bg-muted rounded-md transition-colors duration-200">Program</a>
                             <a href="index.html#why-us" class="block px-3 py-2 text-body text-foreground/80 hover:text-foreground hover:bg-muted rounded-md transition-colors duration-200">Why Us</a>
                             <div class="px-3 py-2">
-                                <div class="text-body text-foreground/80 font-medium mb-2">Events</div>
-                                <a href="event.html" class="block px-3 py-2 text-body text-foreground/60 hover:text-foreground hover:bg-muted rounded-md transition-colors duration-200">Webinars</a>
-                                <a href="https://www.eventbrite.com" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 text-body text-foreground/60 hover:text-foreground hover:bg-muted rounded-md transition-colors duration-200">Workshops</a>
+                                <button id="mobile-events-btn" class="w-full text-left text-body text-foreground/80 font-medium flex items-center justify-between">Events<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="transition-transform duration-200" id="mobile-events-chevron"><path d="m6 9 6 6 6-6"></path></svg></button>
+                                <div id="mobile-events-submenu" class="mt-2 space-y-1 max-h-0 overflow-hidden transition-all duration-200">
+                                    <a href="event.html" class="block px-3 py-2 text-body text-foreground/60 hover:text-foreground hover:bg-muted rounded-md transition-colors duration-200">Webinars</a>
+                                    <a href="https://www.eventbrite.com" target="_blank" rel="noopener noreferrer" class="block px-3 py-2 text-body text-foreground/60 hover:text-foreground hover:bg-muted rounded-md transition-colors duration-200">Workshops</a>
+                                </div>
                             </div>
                             <a href="#agenda" class="block px-3 py-2 text-body text-foreground/80 hover:text-foreground hover:bg-muted rounded-md transition-colors duration-200">Agenda</a>
                             <a href="#speaker" class="block px-3 py-2 text-body text-foreground/80 hover:text-foreground hover:bg-muted rounded-md transition-colors duration-200">Speaker</a>
@@ -222,7 +224,7 @@
                                             <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-foreground">
                                                     <path d="M9 11l3 3L22 4"></path>
-                                                    <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"></path>
+                                                    <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9s4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"></path>
                                                 </svg>
                                             </div>
                                         </div>
@@ -235,7 +237,7 @@
                                             <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-foreground">
                                                     <path d="M9 11l3 3L22 4"></path>
-                                                    <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"></path>
+                                                    <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9s4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"></path>
                                                 </svg>
                                             </div>
                                         </div>
@@ -248,7 +250,7 @@
                                             <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-foreground">
                                                     <path d="M9 11l3 3L22 4"></path>
-                                                    <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"></path>
+                                                    <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9s4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"></path>
                                                 </svg>
                                             </div>
                                         </div>
@@ -261,7 +263,7 @@
                                             <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-foreground">
                                                     <path d="M9 11l3 3L22 4"></path>
-                                                    <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"></path>
+                                                    <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9s4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"></path>
                                                 </svg>
                                             </div>
                                         </div>
@@ -274,7 +276,7 @@
                                             <div class="w-8 h-8 bg-accent rounded-full flex items-center justify-center">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent-foreground">
                                                     <path d="M9 11l3 3L22 4"></path>
-                                                    <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"></path>
+                                                    <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9s4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"></path>
                                                 </svg>
                                             </div>
                                         </div>
@@ -435,7 +437,7 @@
                                         <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-3">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-600">
                                                 <path d="M9 11l3 3L22 4"></path>
-                                                <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"></path>
+                                                <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9s4.03-9 9-9c1.66 0 3.22.45 4.56 1.23"></path>
                                             </svg>
                                         </div>
                                         <h3 class="text-md-headline text-green-700">This webinar IS for you if:</h3>
@@ -617,5 +619,85 @@
             </footer>
         </div>
     </div>
+
+<script>
+// Navigation functionality
+document.addEventListener('DOMContentLoaded', function() {
+    // Desktop Events dropdown
+    const eventsBtn = document.getElementById('events-dropdown-btn');
+    const eventsDropdown = document.getElementById('events-dropdown');
+    const eventsChevron = document.getElementById('events-chevron');
+    let isEventsOpen = false;
+
+    if (eventsBtn && eventsDropdown) {
+        eventsBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            isEventsOpen = !isEventsOpen;
+            
+            if (isEventsOpen) {
+                eventsDropdown.classList.remove('opacity-0', 'invisible');
+                eventsDropdown.classList.add('opacity-100', 'visible');
+                eventsChevron.style.transform = 'rotate(180deg)';
+            } else {
+                eventsDropdown.classList.add('opacity-0', 'invisible');
+                eventsDropdown.classList.remove('opacity-100', 'visible');
+                eventsChevron.style.transform = 'rotate(0deg)';
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!eventsBtn.contains(e.target) && !eventsDropdown.contains(e.target)) {
+                isEventsOpen = false;
+                eventsDropdown.classList.add('opacity-0', 'invisible');
+                eventsDropdown.classList.remove('opacity-100', 'visible');
+                eventsChevron.style.transform = 'rotate(0deg)';
+            }
+        });
+    }
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    let isMobileMenuOpen = false;
+
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            isMobileMenuOpen = !isMobileMenuOpen;
+            
+            if (isMobileMenuOpen) {
+                mobileMenu.classList.remove('max-h-0', 'opacity-0');
+                mobileMenu.classList.add('max-h-96', 'opacity-100');
+            } else {
+                mobileMenu.classList.add('max-h-0', 'opacity-0');
+                mobileMenu.classList.remove('max-h-96', 'opacity-100');
+            }
+        });
+    }
+
+    // Mobile Events submenu
+    const mobileEventsBtn = document.getElementById('mobile-events-btn');
+    const mobileEventsSubmenu = document.getElementById('mobile-events-submenu');
+    const mobileEventsChevron = document.getElementById('mobile-events-chevron');
+    let isMobileEventsOpen = false;
+
+    if (mobileEventsBtn && mobileEventsSubmenu) {
+        mobileEventsBtn.addEventListener('click', function() {
+            isMobileEventsOpen = !isMobileEventsOpen;
+            
+            if (isMobileEventsOpen) {
+                mobileEventsSubmenu.classList.remove('max-h-0');
+                mobileEventsSubmenu.classList.add('max-h-32');
+                mobileEventsChevron.style.transform = 'rotate(180deg)';
+            } else {
+                mobileEventsSubmenu.classList.add('max-h-0');
+                mobileEventsSubmenu.classList.remove('max-h-32');
+                mobileEventsChevron.style.transform = 'rotate(0deg)';
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>
